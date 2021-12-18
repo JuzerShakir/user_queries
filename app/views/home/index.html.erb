@@ -1,0 +1,47 @@
+<h1> Nimble Project </h1>
+
+<% if user_signed_in? %>
+  <br>
+  <p style="color:red;"><%= flash[:errors] %></p>
+  <br>
+
+  <%= form_for @search_result , url: { controller: 'search_results', action: 'upload', method: :post } do | f | %>
+    <label>
+      Upload CSV File<br>
+      <%= f.file_field :file, accept: 'text/csv' %>
+    </label>
+    <br>
+    <br>
+    <%= f.submit 'Upload', data: {disable_with: "Analyzing..."} %>
+  <% end %>
+
+<br>
+
+  <% if @searches.any? %>
+    <table border='1px solid black'>
+      <tr>
+        <th>Search keywords</th>
+        <th>No. of results & duration</th>
+        <th>All links count</th>
+        <th>All Google Ads count</th>
+        <th>Raw file</th>
+        <th>Action</th>
+      </tr>
+      <% @searches.each do | search | %>
+        <tr>
+          <td><%= search.keyword %></td>
+          <td><%= search.results_count %></td>
+          <td><%= search.links_count %></td>
+          <td><%= search.adwords_count %></td>
+          <td><%= link_to 'View', raw_code_path(search.id), target: '_blank' %></td>
+          <td><%= link_to 'Delete', destroy_search_path(search.id), method: :delete, data: {confirm: 'Are you sure?'} %></td>
+        </tr>
+      <% end %>
+    </table>
+  <% end %>
+
+<% else %>
+  <p>Login/Signup to upload csv file of searches to search on google.</p>
+  <%= link_to 'Sign In', new_user_session %>
+  <%= link_to 'Sign Up', new_user_registration %>
+<% end %>
