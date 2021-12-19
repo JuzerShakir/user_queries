@@ -67,3 +67,5 @@ gem "nokogiri", "~> 1.10"
 gem "webdriver", "~> 0.19.0"
 
 gem "rename", "~> 1.0"
+
+gem "bootstrap-sass", "~> 3.4"
