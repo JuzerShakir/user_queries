@@ -1,3 +1,4 @@
+=begin
 Sidekiq.configure_client do |config|
   if Rails.env.production?
     uri = URI.parse(ENV['REDIS_URL'])
@@ -15,3 +16,4 @@ Sidekiq.configure_server do |config|
     config.redis = { url: 'redis://127.0.0.1:6379' }
   end
 end
+=end
