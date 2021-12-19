@@ -22,6 +22,7 @@
     <table class="table">
       <thead class="thead-dark">
         <tr>
+          <th>#</th>
           <th>Keywords</th>
           <th>Duration</th>
           <th>#Links</th>
@@ -31,8 +32,10 @@
         </tr>
       </thead>
       <tbody>
+        <% i = 1 %>
         <% @searches.each do | search | %>
           <tr class="trow-light">
+            <td><%= i %></td>
             <td><%= search.keyword %></td>
             <td><%= search.results_count %></td>
             <td><%= search.links_count %></td>
@@ -40,6 +43,7 @@
             <td><%= link_to 'View', raw_code_path(search.id), target: '_blank', class: "view" %></td>
             <td><%= link_to 'Delete', destroy_search_path(search.id), method: :delete, data: {confirm: 'Are you sure?'}, class: "delete" %></td>
           </tr>
+          <% i += 1 %>
         <% end %>
       </tbody>
     </table>
