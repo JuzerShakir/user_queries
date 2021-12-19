@@ -70,6 +70,4 @@ gem "rename", "~> 1.0"
 
 gem "bootstrap-sass", "~> 3.4"
 
-gem "bootstrap", "~> 5.1"
-
 gem "jquery", "~> 0.0.1"
