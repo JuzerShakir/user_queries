@@ -14,7 +14,7 @@ class SearchResultsController < ApplicationController
         user_search.keyword = query     # => saving the search query in the table
 
         if Rails.env.production?
-          args = %w[--headless --disable-gpu]
+          args = %w[--headless --disable-gpu --no-sandbox --disable-dev-shm-usage]
           options = {
             binary: ENV['GOOGLE_CHROME_BIN'],
             prefs: { password_manager_enable: false, credentials_enable_service: false },
