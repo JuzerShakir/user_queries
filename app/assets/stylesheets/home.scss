@@ -5,7 +5,10 @@
 $lighter-grey: #3c4950;
 $light-green: #08eb00;
 $light-black: #333333;
+$little-light-black: #474747;
+$very-light-black: #525252;
 $dark-black: #242424;
+
 
 @mixin flex-center {
   display: flex;
@@ -94,7 +97,7 @@ $dark-black: #242424;
 
     th {
       text-align: center;
-      border-bottom: 1px solid $dark-black;
+      border: 2px solid $dark-black;
     }
   }
 
@@ -106,8 +109,7 @@ $dark-black: #242424;
 
     td {
       text-align: center;
-      border-right: 2px solid #525252;
-      border-bottom: 2px solid #525252;
+      border: 2px solid $very-light-black;
       .view {
         color: $light-green;
         font-weight: 600;
@@ -116,6 +118,9 @@ $dark-black: #242424;
         color: red;
         font-weight: 600;
       }
+    }
+    &:hover {
+      background-color: #474747;
     }
   }
 }
