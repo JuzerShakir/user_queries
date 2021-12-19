@@ -13,7 +13,18 @@ class SearchResultsController < ApplicationController
 
         user_search.keyword = query     # => saving the search query in the table
 
-        browser = Watir::Browser.new :chrome, headless: 'start'
+        if Rails.env.production?
+          args = %w[--headless --disable-gpu]
+          options = {
+            binary: ENV['GOOGLE_CHROME_BIN'],
+            prefs: { password_manager_enable: false, credentials_enable_service: false },
+            args:  args
+          }
+          browser = Watir::Browser.new :chrome, options: options
+        else
+          browser = Watir::Browser.new :chrome, headless: 'start'
+        end
+
         en_query = ERB::Util.url_encode(query)       # =>  URL encode the string for special characters to work
         browser.goto "https://www.google.com/search?q=#{en_query}"
         page = Nokogiri::HTML(browser.html)    # =>  extract all html code of the page
