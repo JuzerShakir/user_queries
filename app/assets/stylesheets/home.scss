@@ -68,8 +68,12 @@ $dark-black: #242424;
     font-size: x-large;
     text-align: center;
   }
-  label input {
-    font-size: large;
+  label {
+    display: inline-flex;
+    max-width: 74%;
+    input {
+      font-size: medium;
+    }
   }
   .btn {
     font-size: medium;
@@ -93,7 +97,7 @@ $dark-black: #242424;
     background-color: $dark-black;
     color: white;
     font-weight: 600;
-    font-size: 20px;
+    font-size: 16px;
 
     th {
       text-align: center;
@@ -105,7 +109,7 @@ $dark-black: #242424;
     background-color: $light-black;
     color: white;
     font-weight: 500;
-    font-size: 18px;
+    font-size: 13px;
 
     td {
       text-align: center;
@@ -120,7 +124,7 @@ $dark-black: #242424;
       }
     }
     &:hover {
-      background-color: #474747;
+      background-color: $little-light-black;
     }
   }
 }
