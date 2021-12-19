@@ -65,3 +65,5 @@ gem "watir", "~> 6.16"
 gem "nokogiri", "~> 1.10"
 
 gem "webdriver", "~> 0.19.0"
+
+gem "rename", "~> 1.0"
