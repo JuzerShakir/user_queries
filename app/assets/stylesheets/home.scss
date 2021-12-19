@@ -63,7 +63,6 @@ $dark-black: #242424;
 #file-upload  {
   @include grid-center;
   margin-bottom: 50px;
-
   p {
     font-size: x-large;
     text-align: center;
@@ -93,38 +92,42 @@ $dark-black: #242424;
 }
 
 #results {
-  .thead-dark {
-    background-color: $dark-black;
-    color: white;
-    font-weight: 600;
-    font-size: 16px;
+    // prevents the tables' content from overflowing
+    overflow: auto;
+  table {
+    .thead-dark {
+      background-color: $dark-black;
+      color: white;
+      font-weight: 600;
+      font-size: 14.5px;
 
-    th {
-      text-align: center;
-      border: 2px solid $dark-black;
-    }
-  }
-
-  .trow-light {
-    background-color: $light-black;
-    color: white;
-    font-weight: 500;
-    font-size: 13px;
-
-    td {
-      text-align: center;
-      border: 2px solid $very-light-black;
-      .view {
-        color: $light-green;
-        font-weight: 600;
-      }
-      .delete {
-        color: red;
-        font-weight: 600;
+      th {
+        text-align: center;
+        border: 2px solid $dark-black;
       }
     }
-    &:hover {
-      background-color: $little-light-black;
+
+    .trow-light {
+      background-color: $light-black;
+      color: white;
+      font-weight: 500;
+      font-size: 13px;
+
+      td {
+        text-align: center;
+        border: 2px solid $very-light-black;
+        .view {
+          color: $light-green;
+          font-weight: 600;
+        }
+        .delete {
+          color: red;
+          font-weight: 600;
+        }
+      }
+      &:hover {
+        background-color: $little-light-black;
+      }
     }
   }
 }
