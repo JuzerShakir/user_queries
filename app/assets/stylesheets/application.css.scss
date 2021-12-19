@@ -13,5 +13,18 @@
  *= require_tree .
  *= require_self
  */
-@import 'bootstrap-sprockets';
+// required for bootstrap-sass to work
+//@import 'bootstrap-sprockets';
 @import 'bootstrap';
+
+// Sass Variable
+// Colors
+$cream: #FFFDD0;
+
+body {
+  background-color: $cream;
+}
+
+#container {
+  margin: 50px;
+}

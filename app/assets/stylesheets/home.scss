@@ -1,3 +1,121 @@
 // Place all the styles related to the Home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+$lighter-grey: #3c4950;
+$light-green: #08eb00;
+$light-black: #333333;
+$dark-black: #242424;
+
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+}
+
+@mixin grid-center {
+  display: grid;
+  justify-content: center;
+}
+
+#heading {
+  @include flex-center;
+  margin-bottom: 40px;
+}
+
+.errors {
+  @include flex-center;
+  color: red;
+  font-size: medium;
+  font-weight: 700;
+  margin-bottom: 40px;
+}
+
+.info {
+  @include flex-center;
+  font-size: x-large;
+  color: $lighter-grey;
+  margin-bottom: 40px;
+}
+
+#session-buttons  {
+  @include grid-center;
+
+  .btn-primary {
+    margin-bottom: 20px;
+  }
+
+  a.user_session {
+    color: white;
+    font-size: medium;
+    font-weight: 700;
+
+    &:hover {
+      text-decoration: none;
+      color:white;
+    }
+  }
+}
+
+
+#file-upload  {
+  @include grid-center;
+  margin-bottom: 50px;
+
+  p {
+    font-size: x-large;
+    text-align: center;
+  }
+  label input {
+    font-size: large;
+  }
+  .btn {
+    font-size: medium;
+    font-weight: 700;
+  }
+}
+
+#log-out  {
+  margin-top: 100px;
+  @include flex-center;
+
+  .btn-warning {
+    color: red;
+    font-size: medium;
+    font-weight: 700;
+  }
+}
+
+#results {
+  .thead-dark {
+    background-color: $dark-black;
+    color: white;
+    font-weight: 600;
+    font-size: 20px;
+
+    th {
+      text-align: center;
+      border-bottom: 1px solid $dark-black;
+    }
+  }
+
+  .trow-light {
+    background-color: $light-black;
+    color: white;
+    font-weight: 500;
+    font-size: 18px;
+
+    td {
+      text-align: center;
+      border-right: 2px solid #525252;
+      border-bottom: 2px solid #525252;
+      .view {
+        color: $light-green;
+        font-weight: 600;
+      }
+      .delete {
+        color: red;
+        font-weight: 600;
+      }
+    }
+  }
+}

@@ -1,51 +1,65 @@
-<h1> Nimble Project </h1>
+<h1 id="heading"> User Queries </h1>
 
 <% if user_signed_in? %>
-  <br>
-  <p style="color:red;"><%= flash[:errors] %></p>
-  <br>
 
-  <%= form_for @search_result , url: { controller: 'search_results', action: 'upload', method: :post } do | f | %>
-    <label>
-      Upload CSV File<br>
-      <%= f.file_field :file, accept: 'text/csv' %>
-    </label>
-    <br>
-    <br>
-    <%= f.submit 'Upload', data: {disable_with: "Analyzing..."} %>
-  <% end %>
+  <p class="errors"><%= flash[:errors] %></p>
 
-<br>
+  <div id="file-upload" >
+    <%= form_for @search_result , url: { controller: 'search_results', action: 'upload', method: :post } do | f | %>
 
+      <p>Upload CSV File</p>
+
+      <label><%= f.file_field :file, accept: 'text/csv' %></label>
+
+      <%= f.submit 'Upload', data: {disable_with: "Analyzing..."}, class: 'btn btn-success' %>
+
+    <% end %>
+  </div>
+
+  <div id="results">
   <% if @searches.any? %>
-    <table border='1px solid black'>
-      <tr>
-        <th>Search keywords</th>
-        <th>No. of results & duration</th>
-        <th>All links count</th>
-        <th>All Google Ads count</th>
-        <th>Raw file</th>
-        <th>Action</th>
-      </tr>
-      <% @searches.each do | search | %>
+
+    <table class="table table-hover ">
+      <thead class="thead-dark">
         <tr>
-          <td><%= search.keyword %></td>
-          <td><%= search.results_count %></td>
-          <td><%= search.links_count %></td>
-          <td><%= search.adwords_count %></td>
-          <td><%= link_to 'View', raw_code_path(search.id), target: '_blank' %></td>
-          <td><%= link_to 'Delete', destroy_search_path(search.id), method: :delete, data: {confirm: 'Are you sure?'} %></td>
+          <th>Search keywords</th>
+          <th># Results & duration</th>
+          <th># Links count</th>
+          <th># Google Ads count</th>
+          <th>Raw file</th>
+          <th>Action</th>
         </tr>
-      <% end %>
+      </thead>
+      <tbody>
+        <% @searches.each do | search | %>
+          <tr class="trow-light">
+            <td><%= search.keyword %></td>
+            <td><%= search.results_count %></td>
+            <td><%= search.links_count %></td>
+            <td><%= search.adwords_count %></td>
+            <td><%= link_to 'View', raw_code_path(search.id), target: '_blank', class: "view" %></td>
+            <td><%= link_to 'Delete', destroy_search_path(search.id), method: :delete, data: {confirm: 'Are you sure?'}, class: "delete" %></td>
+          </tr>
+        <% end %>
+      </tbody>
     </table>
 
-    <br>
-
-    <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %><br>
   <% end %>
 
+  </div>
+
+  <div id="log-out">
+    <%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class:"btn btn-warning" %>
+  </div>
+
 <% else %>
-  <p>Login/Signup to upload csv file of searches to search on google.</p>
-  <%= link_to 'Sign In', new_user_session_path %><br>
-  <%= link_to 'Sign Up', new_user_registration_path %>
+
+  <p class='info'>Login/Signup to upload a CSV file of list of queries to search on google.</p>
+
+  <div id="session-buttons">
+  <button type="button" class="btn btn-primary"><%= link_to 'Sign In', new_user_session_path, class: :user_session %></button>
+
+  <button type="button" class="btn btn-primary"><%= link_to 'Sign Up', new_user_registration_path, class: :user_session  %></button>
+  </div>
+
 <% end %>
