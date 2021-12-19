@@ -8,7 +8,8 @@ $light-black: #333333;
 $little-light-black: #474747;
 $very-light-black: #525252;
 $dark-black: #242424;
-
+$dark-brown: #a75e11;
+$dark-orange: #ff8000;
 
 @mixin flex-center {
   display: flex;
@@ -128,6 +129,27 @@ $dark-black: #242424;
       &:hover {
         background-color: $little-light-black;
       }
+    }
+  }
+}
+
+
+/*--------- footer----------- */
+footer {
+  span {
+    @include flex-center;
+    margin-top: 25px;
+    padding-top: 5px;
+    border-top: 2px solid $little-light-black;
+    color: $little-light-black;
+    font-size: 12px;
+    letter-spacing: 0.5;
+
+    a {
+      color: $dark-brown;
+    }
+    a:hover {
+      color: $dark-orange;
     }
   }
 }
