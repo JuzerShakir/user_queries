@@ -76,8 +76,17 @@ class SearchResultsController < ApplicationController
         if params[:search_result] # =>  this will return nill if user clicks on 'upload' without a file
           # getting user-uploaded-file from params
           file = params[:search_result][:file]
-          # using CSV to read the file
-          data = CSV.read((file.path))
+
+          # rescue if user uploads invalid file type
+          begin
+            # using CSV to read the file
+            data = CSV.read((file.path))
+          rescue
+            flash[:errors] = 'Unsupported file type! Only CSV type supported!'
+            redirect_to :root
+          end
+
+          # only csv file will be passed
           upload(data)
         else
           flash[:errors] = 'Please Upload a File'
