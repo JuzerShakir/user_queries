@@ -81,13 +81,12 @@ class SearchResultsController < ApplicationController
           begin
             # using CSV to read the file
             data = CSV.read((file.path))
+            # only csv file will be passed
+            upload(data)
           rescue
             flash[:errors] = 'Unsupported file type! Only CSV type supported!'
             redirect_to :root
           end
-
-          # only csv file will be passed
-          upload(data)
         else
           flash[:errors] = 'Please Upload a File'
           redirect_to :root

@@ -9,7 +9,7 @@
 
       <p>Upload CSV File</p>
 
-      <label><%= f.file_field :file, accept: 'text/csv' %></label>
+      <label><%= f.file_field :file %></label>
 
       <%= f.submit 'Upload', data: {disable_with: "Analyzing..."}, class: 'btn btn-success' %>
 
