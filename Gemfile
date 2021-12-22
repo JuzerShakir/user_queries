@@ -42,6 +42,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'shoulda-matchers'
   gem 'capybara'
+  gem "sidekiq", "~> 5.2"
 end
 
 group :development do
@@ -73,3 +74,4 @@ gem "rename", "~> 1.0"
 gem "bootstrap-sass", "~> 3.4"
 
 gem "jquery", "~> 0.0.1"
+
