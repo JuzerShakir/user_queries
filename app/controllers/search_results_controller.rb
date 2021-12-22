@@ -45,14 +45,12 @@ class SearchResultsController < ApplicationController
             sleep(50)
             redo
           else
-            # initiating SearchResults table of uploader
-            user_search = current_user.search_results.new
-            user_search.keyword = query     # => saving the search query in the table
-            user_search.html_code = page
-            user_search.links_count = links.count              # =>  returns total no. of links in a query
-            user_search.adwords_count = search_ads + shopping_ads
-            user_search.results_count = results_count
-            user_search.save
+            # saving search results data of that user
+            current_user.search_results.create(keyword: query,
+                                              html_code: page,
+                                              links_count: links.count,
+                                              adwords_count: search_ads + shopping_ads,
+                                              results_count: results_count)
           end
         end
     else
