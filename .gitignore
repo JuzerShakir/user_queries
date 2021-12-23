@@ -20,9 +20,14 @@
 /node_modules
 /yarn-error.log
 
-/public/assets
 .byebug_history
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
 /config/database.yml
+
+/public/assets/.sprockets-manifest-db17e2604daef63798ef5862e9594ec5.json
+/public/assets/application-39b12685fbc96987f7b799a6f65a79ecaeb1b1ca2e8ba51d0c46c72fc1d50baf.js
+/public/assets/application-39b12685fbc96987f7b799a6f65a79ecaeb1b1ca2e8ba51d0c46c72fc1d50baf.js.gz
+/public/assets/application-f0d704deea029cf000697e2c0181ec173a1b474645466ed843eb5ee7bb215794.css
+/public/assets/application-f0d704deea029cf000697e2c0181ec173a1b474645466ed843eb5ee7bb215794.css.gz
