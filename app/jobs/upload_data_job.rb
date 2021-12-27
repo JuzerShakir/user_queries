@@ -37,7 +37,7 @@ class UploadDataJob < ApplicationJob
       # .. to avoid this, the 'results' var will have no data so we check if its empty, when it is we pause the..
       # .. program for about a min and continue from the query we left off
       if results_count.empty?
-        sleep(50)
+        sleep(25)
         redo
       else
         # saving search results data of that user
