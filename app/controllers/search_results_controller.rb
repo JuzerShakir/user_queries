@@ -43,7 +43,7 @@ class SearchResultsController < ApplicationController
             redirect_to :root
           end
         else
-          flash[:errors] = 'Please Upload a File'
+          flash[:errors] = 'Please select a file'
           redirect_to :root
         end
       end
