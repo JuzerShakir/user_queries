@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+
+  require 'sidekiq/web'
+  mount Sidekiq::Web => "/sidekiq"
+
   root to: 'home#index'
   devise_for :users
   post '/upload', to: 'search_results#upload'
