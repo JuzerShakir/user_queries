@@ -3,6 +3,7 @@
 <% if user_signed_in? %>
 
   <p class="errors"><%= flash[:errors] %></p>
+  <p class="success"><%= flash[:success] %></p>
 
   <div id="file-upload" >
     <%= form_for @search_result , url: { controller: 'search_results', action: 'upload', method: :post } do | f | %>

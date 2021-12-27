@@ -21,17 +21,26 @@ $dark-orange: #ff8000;
   justify-content: center;
 }
 
+@mixin flash {
+  @include flex-center;
+  font-size: medium;
+  font-weight: 700;
+  margin-bottom: 40px;
+}
+
 #heading {
   @include flex-center;
   margin-bottom: 40px;
 }
 
 .errors {
-  @include flex-center;
+  @include flash;
   color: red;
-  font-size: medium;
-  font-weight: 700;
-  margin-bottom: 40px;
+}
+
+.success {
+  @include flash;
+  color: green;
 }
 
 .info {
@@ -41,7 +50,7 @@ $dark-orange: #ff8000;
   margin-bottom: 40px;
 }
 
-#session-buttons  {
+#session-buttons {
   @include grid-center;
 
   .btn-primary {
@@ -55,13 +64,12 @@ $dark-orange: #ff8000;
 
     &:hover {
       text-decoration: none;
-      color:white;
+      color: white;
     }
   }
 }
 
-
-#file-upload  {
+#file-upload {
   @include grid-center;
   margin-bottom: 50px;
   p {
@@ -81,7 +89,7 @@ $dark-orange: #ff8000;
   }
 }
 
-#log-out  {
+#log-out {
   margin-top: 100px;
   @include flex-center;
 
@@ -93,8 +101,8 @@ $dark-orange: #ff8000;
 }
 
 #results {
-    // prevents the tables' content from overflowing
-    overflow: auto;
+  // prevents the tables' content from overflowing
+  overflow: auto;
   table {
     .thead-dark {
       background-color: $dark-black;
@@ -132,7 +140,6 @@ $dark-orange: #ff8000;
     }
   }
 }
-
 
 /*--------- footer----------- */
 footer {

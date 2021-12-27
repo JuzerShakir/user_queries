@@ -10,6 +10,7 @@ class SearchResultsController < ApplicationController
       # send the data to redis server so sidekiq will load from there and save queries to database
       # calls class at app/jobs/upload_data_job.rb
       UploadDataJob.perform_later(queries, current_user)
+      flash[:success] = 'File uploaded successfully! The table will show keyword results as soon as its processed!'
     else
       flash[:errors] = 'Search Queries in the file are either more than 100 or empty'
     end
