@@ -2,18 +2,18 @@ class UploadDataJob < ApplicationJob
   queue_as :default
 
   def perform(queries, current_user)
-    if Rails.env.production?
-      args = %w[--headless --disable-gpu --no-sandbox --disable-dev-shm-usage]
-      options = {
-        binary: ENV['GOOGLE_CHROME_BIN'],
-        prefs: { password_manager_enable: false, credentials_enable_service: false },
-        args:  args,
-        switches: ['--incognito']}
+    # if Rails.env.production?
+    #   args = %w[--headless --disable-gpu --no-sandbox --disable-dev-shm-usage]
+    #   options = {
+    #     binary: ENV['GOOGLE_CHROME_BIN'],
+    #     prefs: { password_manager_enable: false, credentials_enable_service: false },
+    #     args:  args,
+    #     switches: ['--incognito']}
 
-      browser = Watir::Browser.new :chrome, options: options
-    else
-      browser = Watir::Browser.new :chrome, switches: ['--incognito'], headless: 'start'
-    end
+    #   browser = Watir::Browser.new :chrome, options: options
+    # else
+    # end
+    browser = Watir::Browser.new :chrome, switches: ['--incognito'], headless: 'start'
 
     queries.each do | query |
       en_query = ERB::Util.url_encode(query)       # =>  URL encode the string for special characters to work
