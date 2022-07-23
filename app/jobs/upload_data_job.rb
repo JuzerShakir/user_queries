@@ -14,7 +14,8 @@ class UploadDataJob < ApplicationJob
     # else
     # end
     # browser = Watir::Browser.new :chrome, switches: ['--incognito'], headless: 'start'
-    browser = Watir::Browser.new :chrome
+    # browser = Watir::Browser.new :chrome
+    browser = Watir::Browser.new :chrome, options: {args: '--incognito'}
 
     queries.each do | query |
       en_query = ERB::Util.url_encode(query)       # =>  URL encode the string for special characters to work
